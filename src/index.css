@@ -32,12 +32,14 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  cursor: default;
 }
 
 .game_header_title {
   font-size: 20px;
   font-weight: 700;
   line-height: 15px;
+  cursor: pointer;
 }
 
 .game_header_score {
@@ -72,7 +74,7 @@ body {
   gap: 0px;
 }
 
-.game_playing .button {
+.button {
   aspect-ratio: 1;
   width: 110px;
   background-color: #ffffff;
@@ -84,6 +86,17 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: zoomIn ease-in-out .2s;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
 }
 
 .game_playing .button:hover {
@@ -91,23 +104,23 @@ body {
   background-color: #B2F77D;
 }
 
-.game_playing .scissors {
+.scissors {
   border-color: #eda419;
 }
 
-.game_playing .spock {
+.spock {
   border-color: #42bacb;
 }
 
-.game_playing .paper {
+.paper {
   border-color: #4d69f9;
 }
 
-.game_playing .lizard {
+.lizard {
   border-color: #8c5ae7;
 }
 
-.game_playing .rock {
+.rock {
   border-color: #df3756;
 }
 
@@ -162,6 +175,87 @@ body {
 
 .game_rules:hover {
   transform: translate(0px, -5px);
+}
+
+.game_result {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  min-width: 50%;
+  cursor: default;
+  position: relative;
+}
+
+.game_result_left,
+.game_result_right {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 50px;
+  font-size: 25px;
+  font-weight: 700;
+  width: 50%;
+}
+
+.game_result_right .img {
+  width: 500px;
+}
+
+.game_result_left .button,
+.game_result_right .button {
+  width: 50%;
+  border-width: 40px;
+  box-shadow: inset 0px 15px 0px rgba(0, 0, 0, 0.103);
+  font-size: 500px;
+  size: 500px;
+  cursor: default;
+}
+
+.game_result img {
+  width: 50%;
+}
+
+.game_result_winner {
+  box-shadow: 0;
+}
+
+.game_result_right .loading {
+  aspect-ratio: 1;
+  width: 50%;
+  background-color: rgba(0, 0, 0, 0.267);
+  border-radius: 100vh;
+  border: #ffffff00 40px solid;
+}
+
+.game_result_middle {
+  position: absolute;
+  bottom: -120px;
+  right: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.game_result_middle p {
+  font-size: 60px;
+  font-weight: 700;
+}
+
+.game_result_middle button {
+  border: none;
+  padding: 10px 50px;
+  font-size: 18px;
+  color: #2f356d;
+  margin-top: 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+
+.game_result_middle button:hover {
+  transform: translate(0, -5px);
 }
 
 .show {
